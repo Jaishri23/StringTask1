@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>JavaScript Form Validation: Valid UserName </title>
+</head>
+  
+<body>
+<script>
+  function check_Alpha(){
+var yourname=document.getElementById("username").value
+
+    var regex = /^(?=.*[a-z])(?=.*[A-Z])/;
+    var regex1=/^(?=.*[0-9])/;
+    var regex2=/^(?=.*[!@#$%^&*])/;
+    if(regex1.test(yourname)){
+      alert("Name Field should not Number");
+      return false;
+    }
+    if(yourname.includes(' ')){
+      alert("Name Field should not contain space");
+      return false;
+    }
+    if(regex2.test(yourname)){
+      alert("Name Field should not special char");
+      return false;
+    }
+    if(regex.test(yourname)){
+      alert('Login Sucess');
+      return true;
+    }
+   else{
+    alert("User Name must contain one lower case and one upper case");
+    return false;
+   }
+    
+  }
+</script>
+  <form onSubmit="return check_Alpha()" >
+          
+  User Name : 
+   <input type="text" size="40" id="username" /> 
+          
+  <input type="submit" value="Submit" />
+  <input type="reset"/> 
+ </form>         
+  
+          
+</body>
+</html>
